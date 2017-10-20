@@ -1,0 +1,8 @@
+---
+applications:
+- name: demo-dashboard
+  memory: 1024M
+  instances: 1
+  host: demo-dashboard
+  domain: cfapps.io
+  path: target/demo-0.0.1-SNAPSHOT.jar
