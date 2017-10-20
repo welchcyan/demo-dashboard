@@ -34,27 +34,28 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+
     <script src="assets/js/holder.js"></script>
     <script src="assets/lib/angular/angular.js"></script>
     <script src="assets/lib/angular/angular-route.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/controller.js"></script>
-    <script src="assets/js/parallax.js"></script>
 
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="assets/lib/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/lib/owl-carousel/owl.carousel.min.js"></script>
-    <script src="assets/js/google-code-prettify/prettify.js"></script>
 
 
-    <script type="text/javascript" src="http://iop.io/js/vendor/d3.v3.min.js"></script>
-    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
-    <script type="text/javascript" src="http://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
-    <script type="text/javascript" src="http://iop.io/js/iopctrl.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/vendor/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/vendor/polymer/PointerEvents/pointerevents.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/vendor/polymer/PointerGestures/pointergestures.js"></script>
+    <script type="text/javascript" src="https://iop.io/js/iopctrl.js"></script>
 
     <div ng-view></div>
 
@@ -165,7 +166,7 @@
     function updateGauge() {
 
         $.ajax({
-            url:"http://demo-source.cfapps.io/admin/metrics",
+            url:"https://demo-source.cfapps.io/admin/metrics",
             type: "GET",
             headers:{
                 "Content-Type":"application/json"
