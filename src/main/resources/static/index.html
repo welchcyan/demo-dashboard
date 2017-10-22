@@ -66,7 +66,7 @@
     <style>
         body {
             font: 16px arial;
-            background-color: #515151;
+            background-color: #1f1f51;
         }
 
         .unselectable {
@@ -124,6 +124,7 @@
 <body>
 <div>
     <span id="speedometer"></span>
+    <span id="speedometer1"></span>
 </div>
 
 <script>
@@ -163,6 +164,46 @@
         .attr("class", "gauge")
         .call(gauge);
 
+
+
+    //display 2
+    var svg1 = d3.select("#speedometer1")
+        .append("svg:svg")
+        .attr("width", 400)
+        .attr("height", 400);
+
+
+    var gauge1 = iopctrl.arcslider()
+        .radius(120)
+        .events(false)
+        .indicator(iopctrl.defaultGaugeIndicator);
+
+    gauge1.axis().orient("in")
+        .normalize(true)
+        .ticks(12)
+        .tickSubdivide(3)
+        .tickSize(10, 8, 10)
+        .tickPadding(5)
+        .scale(d3.scale.linear()
+            .domain([0, 4])
+            .range([-3*Math.PI/4, 3*Math.PI/4]));
+
+    var segDisplay1 = iopctrl.segdisplay()
+        .width(80)
+        .digitCount(6)
+        .negative(false)
+        .decimals(0);
+
+    svg1.append("g")
+        .attr("class", "segdisplay")
+        .attr("transform", "translate(130, 200)")
+        .call(segDisplay1);
+
+    svg1.append("g")
+        .attr("class", "gauge")
+        .call(gauge1);
+
+
     function updateGauge() {
 
         $.ajax({
@@ -176,6 +217,9 @@
             success: function(data) {
                 gauge.value(data["systemload.average"]);
                 segDisplay.value(data["systemload.average"]);
+                gauge1.value(data["gauge.response.cloudfoundryapplication"]);
+                segDisplay1.value(data["gauge.response.cloudfoundryapplication"]);
+
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 alert(XMLHttpRequest.status);
